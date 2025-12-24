@@ -1,0 +1,187 @@
+create database apphub;
+use apphub;
+
+
+create table categories(
+c_id int auto_increment primary key,
+c_name varchar(50) not null
+);
+
+
+select * from categories;
+
+
+create table applications(
+a_id int auto_increment primary key,
+a_name varchar(50) not null,
+a_link varchar(50) not null,
+a_emoji varchar(10)
+);
+
+
+select * from applications;
+
+
+alter table categories
+add column c_emoji varchar(50) ;
+
+
+select * from categories;
+
+
+
+insert into categories(c_id ,c_name,c_emoji)values
+(1, 'Social Media', '📱'),
+(2, 'Entertainment', '🎬'),
+(3, 'Games', '🎮'),
+(4, 'Travel', '✈️'),
+(5, 'Finance', '💰'),
+(6, 'Shopping', '🛒'),
+(7, 'Productivity', '📝'),
+(8, 'AI Tools', '🤖'),
+(9, 'Health & Fitness', '🏋️‍♂️'),
+(10, 'Education', '📚');
+
+
+select * from categories;
+
+ALTER TABLE applications
+ADD COLUMN c_id INT,
+ADD CONSTRAINT fk_category
+FOREIGN KEY (c_id) REFERENCES categories(c_id);
+
+-- Social Media
+insert into applications(a_name, a_link, a_emoji, c_id)VALUES
+('Facebook', 'https://www.facebook.com', '📘', 1),
+('Instagram', 'https://www.instagram.com', '📸', 1),
+('Twitter', 'https://twitter.com', '🐦', 1),
+('Snapchat', 'https://www.snapchat.com', '👻', 1),
+('LinkedIn', 'https://www.linkedin.com', '💼', 1),
+('TikTok', 'https://www.tiktok.com', '🎵', 1),
+('Pinterest', 'https://www.pinterest.com', '📌', 1),
+('Reddit', 'https://www.reddit.com', '👽', 1),
+('WhatsApp', 'https://www.whatsapp.com', '💬', 1),
+('Telegram', 'https://telegram.org', '✈️', 1);
+
+-- 2Entertainment 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('Netflix', 'https://www.netflix.com', '🎬', 2),
+('YouTube', 'https://www.youtube.com', '▶️', 2),
+('Spotify', 'https://www.spotify.com', '🎵', 2),
+('Amazon Prime', 'https://www.primevideo.com', '🍿', 2),
+('Disney+', 'https://www.disneyplus.com', '🏰', 2),
+('Hulu', 'https://www.hulu.com', '📺', 2),
+('Hotstar', 'https://www.hotstar.com', '⭐', 2),
+('SoundCloud', 'https://soundcloud.com', '🎧', 2),
+('Vimeo', 'https://vimeo.com', '🎥', 2),
+('Twitch', 'https://www.twitch.tv', '🎮', 2);
+
+-- 3Games
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('PUBG', 'https://www.pubg.com', '🔫', 3),
+('Fortnite', 'https://www.epicgames.com/fortnite', '🏰', 3),
+('Among Us', 'https://www.innersloth.com/gameAmongUs.php', '👽', 3),
+('Minecraft', 'https://www.minecraft.net', '⛏️', 3),
+('Call of Duty', 'https://www.callofduty.com', '💣', 3),
+('Clash of Clans', 'https://clashofclans.com', '🏹', 3),
+('Candy Crush', 'https://king.com/game/candycrush', '🍭', 3),
+('Pokemon Go', 'https://pokemongolive.com', '⚡', 3),
+('Genshin Impact', 'https://genshin.mihoyo.com', '🌌', 3),
+('Roblox', 'https://www.roblox.com', '🛠️', 3);
+
+-- 4 Travel 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('Booking.com', 'https://www.booking.com', '🏨', 4),
+('Airbnb', 'https://www.airbnb.com', '🏠', 4),
+('Expedia', 'https://www.expedia.com', '✈️', 4),
+('TripAdvisor', 'https://www.tripadvisor.com', '🗺️', 4),
+('Uber', 'https://www.uber.com', '🚗', 4),
+('Lyft', 'https://www.lyft.com', '🚖', 4),
+('Skyscanner', 'https://www.skyscanner.com', '🛫', 4),
+('Google Maps', 'https://maps.google.com', '🗺️', 4),
+('Kayak', 'https://www.kayak.com', '🌏', 4),
+('Trivago', 'https://www.trivago.com', '🏨', 4);
+
+-- 5️ Finance 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('PayPal', 'https://www.paypal.com', '💳', 5),
+('Google Pay', 'https://pay.google.com', '📱', 5),
+('PhonePe', 'https://www.phonepe.com', '📲', 5),
+('Venmo', 'https://venmo.com', '💰', 5),
+('Cash App', 'https://cash.app', '💵', 5),
+('Mint', 'https://www.mint.com', '📝', 5),
+('Robinhood', 'https://www.robinhood.com', '📈', 5),
+('Coinbase', 'https://www.coinbase.com', '🪙', 5),
+('Zelle', 'https://www.zellepay.com', '💸', 5),
+('Skrill', 'https://www.skrill.com', '💲', 5);
+
+-- 6️ Shopping 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('Amazon', 'https://www.amazon.com', '🛒', 6),
+('eBay', 'https://www.ebay.com', '📦', 6),
+('Flipkart', 'https://www.flipkart.com', '🛍️', 6),
+('AliExpress', 'https://www.aliexpress.com', '📦', 6),
+('Walmart', 'https://www.walmart.com', '🏬', 6),
+('Etsy', 'https://www.etsy.com', '🎨', 6),
+('Target', 'https://www.target.com', '🛒', 6),
+('Best Buy', 'https://www.bestbuy.com', '💻', 6),
+('Myntra', 'https://www.myntra.com', '👗', 6),
+('Snapdeal', 'https://www.snapdeal.com', '📦', 6);
+
+-- 7️ Productivity 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('Microsoft Word', 'https://www.microsoft.com/word', '📝', 7),
+('Google Docs', 'https://docs.google.com', '📄', 7),
+('Evernote', 'https://evernote.com', '🗒️', 7),
+('Trello', 'https://trello.com', '📋', 7),
+('Asana', 'https://asana.com', '✅', 7),
+('Slack', 'https://slack.com', '💬', 7),
+('Notion', 'https://www.notion.so', '🗂️', 7),
+('OneNote', 'https://www.onenote.com', '📝', 7),
+('Todoist', 'https://todoist.com', '📌', 7),
+('Google Keep', 'https://keep.google.com', '🗒️', 7);
+
+-- 8️ AI Tools 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('ChatGPT', 'https://chat.openai.com', '🤖', 8),
+('DALL·E', 'https://openai.com/dall-e', '🎨', 8),
+('MidJourney', 'https://www.midjourney.com', '🖌️', 8),
+('Jasper AI', 'https://www.jasper.ai', '✍️', 8),
+('Grammarly', 'https://www.grammarly.com', '📝', 8),
+('Copy.ai', 'https://www.copy.ai', '💡', 8),
+('Runway', 'https://runwayml.com', '🎬', 8),
+('Synthesia', 'https://www.synthesia.io', '🎥', 8),
+('Notion AI', 'https://www.notion.so/product/ai', '🗂️', 8),
+('AI Dungeon', 'https://play.aidungeon.io', '🗺️', 8);
+
+-- 9️ Health & Fitness 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('MyFitnessPal', 'https://www.myfitnesspal.com', '🍎', 9),
+('Strava', 'https://www.strava.com', '🚴‍♂️', 9),
+('Fitbit', 'https://www.fitbit.com', '⌚', 9),
+('Nike Training', 'https://www.nike.com/ntc-app', '🏃‍♂️', 9),
+('7 Minute Workout', 'https://7minuteworkout.jnj.com', '⏱️', 9),
+('Yoga Studio', 'https://www.yogastudioapp.com', '🧘', 9),
+('Calm', 'https://www.calm.com', '🛌', 9),
+('Headspace', 'https://www.headspace.com', '🧠', 9),
+('Peloton', 'https://www.onepeloton.com', '🚴‍♀️', 9),
+('Runtastic', 'https://www.runtastic.com', '🏃‍♀️', 9);
+
+-- 10 Education 
+INSERT INTO applications (a_name, a_link, a_emoji, c_id) VALUES
+('Khan Academy', 'https://www.khanacademy.org', '📚', 10),
+('Coursera', 'https://www.coursera.org', '🎓', 10),
+('Udemy', 'https://www.udemy.com', '💻', 10),
+('edX', 'https://www.edx.org', '📖', 10),
+('Duolingo', 'https://www.duolingo.com', '🦉', 10),
+('Skillshare', 'https://www.skillshare.com', '🎨', 10),
+('Codecademy', 'https://www.codecademy.com', '💻', 10),
+('TED', 'https://www.ted.com', '🎤', 10),
+('Brainly', 'https://brainly.com', '🧠', 10),
+('Quizlet', 'https://quizlet.com', '📑', 10);
+
+select *from categories;
+
+-- to see data
+select* from applications;
+select* from applications;
